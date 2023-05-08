@@ -37,7 +37,7 @@ void check_elf(unsigned char *e_ident)
 			dprintf(STDERR_FILENO, "Error: Not an ELF file\n");
 			exit(98);
 		}
-
+	}
 
 /**
  * print_magic - will prints the magic numbers of an ELF header.
@@ -298,8 +298,6 @@ int main(int __attribute__((__unused__)) argc, char *argv[])
 		dprintf(STDERR_FILENO, "Error: `%s`: No such file\n", argv[1]);
 		exit(98);
 	}
-	}
-}
 
 	check_elf(header->e_ident);
 	printf("ELF Header:\n");
