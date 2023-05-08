@@ -37,8 +37,7 @@ void check_elf(unsigned char *e_ident)
 			dprintf(STDERR_FILENO, "Error: Not an ELF file\n");
 			exit(98);
 		}
-	}
-}
+
 
 /**
  * print_magic - will prints the magic numbers of an ELF header.
@@ -115,6 +114,7 @@ void print_data(unsigned char *e_ident)
  *  * print_version - will print the version of an ELF header.
  *   * @e_ident: will set a pointer to an array containing the ELF version.
 */
+
 void print_version(unsigned char *e_ident)
 {
 	 printf(" Version: %d",
@@ -225,6 +225,7 @@ void print_type(unsigned int e_type, unsigned char *e_ident)
  * @e_entry: The address of the ELF entry point.
  * @e_ident: set a  pointer to an array containing the ELF class.
  */
+
 void print_entry(unsigned long int e_entry, unsigned char *e_ident)
 {
 	printf(" Entry point address: ");
@@ -242,6 +243,7 @@ void print_entry(unsigned long int e_entry, unsigned char *e_ident)
 	else
 		printf("%#lx\n", e_entry);
 }
+
 
 /**
  * close_elf - to Close an ELF file.
@@ -296,6 +298,8 @@ int main(int __attribute__((__unused__)) argc, char *argv[])
 		dprintf(STDERR_FILENO, "Error: `%s`: No such file\n", argv[1]);
 		exit(98);
 	}
+	}
+}
 
 	check_elf(header->e_ident);
 	printf("ELF Header:\n");
