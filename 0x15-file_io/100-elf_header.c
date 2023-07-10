@@ -38,15 +38,12 @@ void check_elf(unsigned char *e_ident)
 			exit(98);
 		}
 	}
-}
-
 /**
  * print_magic - Prints the magic numbers of an ELF header.
  * @e_ident: A pointer to an array containing the ELF magic numbers.
  *
  * Description: Magic numbers are separated by spaces.
  */
-void print_magic(unsigned char *e_ident)
 {
 	int index;
 
@@ -61,6 +58,7 @@ void print_magic(unsigned char *e_ident)
 		else
 			printf(" ");
 	}
+}
 }
 
 /**
@@ -85,8 +83,6 @@ void print_class(unsigned char *e_ident)
 	default:
 		printf("<unknown: %x>\n", e_ident[EI_CLASS]);
 	}
-}
-
 /**
  * print_data - Prints the data of an ELF header.
  * @e_ident: A pointer to an array containing the ELF class.
@@ -110,11 +106,11 @@ void print_data(unsigned char *e_ident)
 		printf("<unknown: %x>\n", e_ident[EI_CLASS]);
 	}
 }
-
+}
 /**
  *  * print_version - Prints the version of an ELF header.
  *   * @e_ident: A pointer to an array containing the ELF version.
- *    */
+ */
 void print_version(unsigned char *e_ident)
 {
 	 printf(" Version: %d",
@@ -129,8 +125,7 @@ void print_version(unsigned char *e_ident)
 		printf("\n");
 		break;
 	}
-}
-
+	}
 /**
  * print_osabi - Prints the OS/ABI of an ELF header.
  * @e_ident: A pointer to an array containing the ELF version.
@@ -174,7 +169,7 @@ void print_osabi(unsigned char *e_ident)
 	default:
 		printf("<unknown: %x>\n", e_ident[EI_OSABI]);
 	}
-}
+	}
 
 /**
  * print_abi - Prints the ABI version of an ELF header.
@@ -184,7 +179,7 @@ void print_abi(unsigned char *e_ident)
 {
 	printf(" ABI Version: %d\n",
 		e_ident[EI_ABIVERSION]);
-}
+
 
 /**
  * print_type - Prints the type of an ELF header.
@@ -218,6 +213,7 @@ void print_type(unsigned int e_type, unsigned char *e_ident)
 	default:
 		printf("<unknown: %x>\n", e_type);
 	}
+	}
 }
 
 /**
@@ -235,14 +231,10 @@ void print_entry(unsigned long int e_entry, unsigned char *e_ident)
 			  ((e_entry >> 8) & 0xFF00FF);
 		e_entry = (e_entry << 16) | (e_entry >> 16);
 	}
-
 	if (e_ident[EI_CLASS] == ELFCLASS32)
 		printf("%#x\n", (unsigned int)e_entry);
-
 	else
 		printf("%#lx\n", e_entry);
-}
-
 /**
  * close_elf - Closes an ELF file.
  * @elf: The file descriptor of the ELF file.
@@ -258,7 +250,7 @@ void close_elf(int elf)
 		exit(98);
 	}
 }
-
+}
 /**
  * main - Displays the information contained in the
  * ELF header at the start of an ELF file.
