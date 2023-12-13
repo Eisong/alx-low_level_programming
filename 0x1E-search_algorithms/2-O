@@ -1,4 +1,1 @@
-#!/bin/bash
-
-# Remove trailing whitespace
-sed -i 's/[[:space:]]\+$//' 2-O
+O(n)
