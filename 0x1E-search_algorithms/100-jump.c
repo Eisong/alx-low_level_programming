@@ -2,7 +2,7 @@
 
 /**
 * linear-search - looks for a value in an array
-* 		  of integers using linear search
+*		of integers using linear search
 * @array: A pointer to the first element of the array to search
 * @size: The number of elements in the array
 * @value: The value to search for
@@ -14,7 +14,7 @@
 int jump_search(int *array, size_t size, int value)
 {
 	size_t i, jump, step;
-	
+
 	/* Check if the array is NULL or empty */
 	if (array == NULL || size == 0)
 		return (-1);
@@ -26,7 +26,7 @@ int jump_search(int *array, size_t size, int value)
 	for (i = jump = 0; jump < size && array[jump] < value;)
 	{
 		printf("Value checked array[%ld] = [%d]\n", jump, array[jump]);
-		
+
 		/* Store the previous jump position */
 		i = jump;
 
@@ -44,7 +44,7 @@ int jump_search(int *array, size_t size, int value)
 		printf("Value checked array[%ld] = [%d]\n", i, array[i]);
 
 	printf("Value checked array[%ld] = [%d]\n", i, array[i]);
-	
+
 	/* Check if the value is found and return the corresponding index */
 	return (array[i] == value ? (int)i :  -1);
 }
